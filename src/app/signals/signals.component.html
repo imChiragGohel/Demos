@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-3">
+    <input type="number" class="form-control" placeholder="SECOND" [(ngModel)]="signalsValue" />
+  </div>
+  <div class="col-1">
+    <button class="btn btn-primary" (click)="signalGo()">Go</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-5"></div>
+  <div class="col-2 bg-color">
+    <ul>
+      <li class="type"><button class="btn btnSize"
+          [ngClass]="(top_r == 0 || top_r < 0) ? 'btn-secondary' : 'btn-danger'">{{(top_r == 0 || top_r < 0) ? '' : top_r}}</button>
+      </li>
+      <li class="type"><button class="btn btnSize"
+          [ngClass]="(top_y == 0 || top_y < 0)  ? 'btn-secondary' : 'btn-warning'">{{(top_y == 0 || top_y < 0) ? '' : top_y}}</button>
+      </li>
+      <li class="type"><button class="btn btnSize"
+          [ngClass]="(top_g == bufferTime || top_g < bufferTime) ? 'btn-secondary' : 'btn-success'">{{(top_g == bufferTime || top_g < bufferTime) ? '' : top_g}}</button>
+      </li>
+    </ul>
+  </div>
+  <div class="col-5"></div>
+</div>
+<div class="row">
+  <div class="col-4 bg-color">
+    <button class="btn btnSize"
+      [ngClass]="(left_r == 0 || left_r < 0) ? 'btn-secondary' : 'btn-danger'">{{(left_r == 0 || left_r < 0) ? '' : left_r}}</button>
+    <button class="btn btnSize"
+      [ngClass]="(left_y == 0 || left_y < 0)  ? 'btn-secondary' : 'btn-warning'">{{(left_y == 0 || left_y < 0) ? '' : left_y}}</button>
+    <button class="btn btnSize"
+      [ngClass]="(left_g == bufferTime || left_g < bufferTime) ? 'btn-secondary' : 'btn-success'">{{(left_g == bufferTime || left_g < bufferTime) ? '' : left_g}}</button>
+  </div>
+  <div class="col-4 bg-color"></div>
+  <div class="col-4 bg-color">
+    <button class="btn btnSize"
+      [ngClass]="(right_g == bufferTime || right_g < bufferTime) ? 'btn-secondary' : 'btn-success'">{{(right_g == bufferTime || right_g < bufferTime) ? '' : right_g}}</button>
+    <button class="btn btnSize"
+      [ngClass]="(right_y == 0 || right_y < 0)  ? 'btn-secondary' : 'btn-warning'">{{(right_y == 0 || right_y < 0) ? '' : right_y}}</button>
+    <button class="btn btnSize"
+      [ngClass]="(right_r == 0 || right_r < 0) ? 'btn-secondary' : 'btn-danger'">{{(right_r == 0 || right_r < 0) ? '' : right_r}}</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-5"></div>
+  <div class="col-2 bg-color">
+    <ul>
+      <li class="type"><button class="btn btnSize"
+          [ngClass]="(bottom_g == bufferTime || bottom_g < bufferTime) ? 'btn-secondary' : 'btn-success'">
+          {{(bottom_g == bufferTime || bottom_g < bufferTime) ? '' : bottom_g}}</button>
+      </li>
+      <li class="type"><button class="btn btnSize"
+          [ngClass]="(bottom_y == 0 || bottom_y < 0) ? 'btn-secondary' : 'btn-warning'">
+          {{(bottom_y == 0 || bottom_y < 0) ? '' : bottom_y}}</button></li>
+      <li class="type"><button class="btn btnSize"
+          [ngClass]="(bottom_r == 0 || bottom_r < 0) ? 'btn-secondary' : 'btn-danger'">
+          {{(bottom_r == 0 || bottom_r < 0) ? '' : bottom_r}}</button></li>
+    </ul>
+  </div>
+  <div class="col-5"></div>
+</div>

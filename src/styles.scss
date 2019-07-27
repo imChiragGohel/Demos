@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.ancor{
+    text-decoration: none !important;
+    padding: 10px;
+}
+.ancor:hover{
+    color: red !important;
+    padding: 20px;
+}
+
+.btnSize{
+    margin: 10px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    line-height: 8px;
+    text-align: center;
+    cursor: not-allowed !important;
+}
+
+.btnSize_tictac{
+    margin: 10px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    line-height: 8px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.player1{
+    background-color:green;
+}
+.player2{
+    background-color:red;
+}
+
+.type{
+    list-style-type: none;
+}
+
+.bg-color{
+    background-color: #b5b6b7;
+}
+
+.winner{
+    text-align: center;
+    font-size: 40px;
+}

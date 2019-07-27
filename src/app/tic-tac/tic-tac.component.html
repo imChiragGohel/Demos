@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-2">
+    <input type="text" [disabled]="IsDisabled" placeholder="Player 1 symbol *" [(ngModel)]="player_one_name"
+      class="form-control" maxlength="10">
+  </div>
+  <div class="col-2">
+    <input type="text" [disabled]="IsDisabled" placeholder="Player 2 symbol o" [(ngModel)]="player_two_name"
+      class="form-control" maxlength="10">
+  </div>
+</div>
+<div class="row">
+  <div class="col-4"></div>
+  <div class="col-4" *ngIf="player_one_name?.trim() && player_two_name?.trim()">
+    <div>
+      <ng-container *ngFor="let item of tictac; let i=index">
+        <button class="btn btnSize_tictac" [disabled]="winner ? true : item.player"
+          [ngClass]="item.player != '' ? (item.player == '*' ? 'btn-success':'btn-danger') : 'btn-secondary' "
+          (click)="ticTacClick(item,i)"><span>{{item.player}}</span></button>
+        <ng-container *ngIf="item.id == 3 || item.id==6">
+          <br>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <div class="col-4"></div>
+</div>
+<div class="row" *ngIf="winner && losser">
+  <div class="col-12 winner text-success">
+    {{winner == 1 ? player_one_name : player_two_name}} You are winner.
+  </div>
+  <div class="col-12 winner text-danger">
+    {{losser == 1 ? player_one_name : player_two_name}} You are looser.
+  </div>
+  <div class="col-2">
+    <button type="button" class="btn btn-primary" *ngIf="(winner && losser) || count == 9" (click)="resetGame()">Reset
+      Game</button>
+  </div>
+</div>
+<div *ngIf="count == 9 && !winner && !losser">
+  Match is TIE.
+</div>
+<!--  -->
+<!--  -->

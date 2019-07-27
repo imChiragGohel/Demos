@@ -1,0 +1,25 @@
+<h5>Dynamic Table</h5>
+<br />
+<table class="table table-responsive table-border">
+    <thead>
+        <ng-container *ngFor="let item of lst_table?.columnName">
+            <th>{{item}}</th>
+        </ng-container>
+    </thead>
+    <tbody>
+        <ng-container *ngIf="lst_table?.items == 0; else data">
+            <tr>
+                <td [attr.colspan]="lst_table?.columnName.length">No Recored</td>
+            </tr>
+        </ng-container>
+        <ng-template #data>
+            <ng-container *ngFor="let item of lst_table?.items">
+                <tr>
+                    <ng-container *ngFor="let col of lst_table?.column">
+                        <td>{{item[col]}}</td>
+                    </ng-container>
+                </tr>
+            </ng-container>
+        </ng-template>
+    </tbody>
+</table>

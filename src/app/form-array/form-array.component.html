@@ -1,0 +1,65 @@
+<h5>Form Array</h5>
+<button class="btn btn-primary" (click)="addRow()">ADD</button>
+<br />
+<form [formGroup]="Invoice_Form">
+  <div class="table-responsive m-b-20">
+    <table class="table table-bordered">
+      <thead>
+        <th>ItemName</th>
+        <th>Qty</th>
+        <th>Rate</th>
+        <th>Amount</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <ng-container formArrayName="InvoicesItems" *ngIf="InvoicesItems?.controls?.length > 0">
+          <tr *ngFor="let item of InvoicesItems.controls; let i=index" [formGroupName]="i">
+            <td>
+              <select formControlName="itemid" class="form-control">
+                <option *ngFor="let in_item of lst_Items" [value]="in_item.id">{{in_item.itemName}}</option>
+              </select>
+            </td>
+            <td>
+              <input type="number" class="form-control" formControlName="qty" />
+            </td>
+            <td>
+              {{item.value.rate}}
+            </td>
+            <td>
+              {{item.value.amount}}
+            </td>
+            <td>
+              <button class="btn btn-danger" (click)="removeItem(item)">clear</button>
+            </td>
+          </tr>
+        </ng-container>
+        <tr>
+          <td colspan="3" class="text-right">Sub Total</td>
+          <td colspan="2"><b>{{subtotal}}</b></td>
+        </tr>
+        <tr>
+          <td>
+            <select class="form-control" formControlName="discount">
+              <option [value]="'us'">$</option>
+              <option [value]="'per'">%</option>
+            </select>
+          </td>
+          <td>
+            <input type="number" class="form-control" formControlName="inputed_discount" />
+          </td>
+          <td class="text-right">
+            Discount
+          </td>
+          <td colspan="2">
+            <span *ngIf="discount != 0">-{{discount}}</span>
+            <span *ngIf="discount == 0">0</span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" class="text-right">Grand Total</td>
+          <td colspan="2"><b>{{grandTotal}}</b></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</form>
